@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node main",
-    "test": "jest --coverage  --reporters=default --reporters=jest-junit"
+    "test": "jest --coverage --onlyChanged --forceExit",
+    "test-actions": "jest --coverage .> coverage/coverage-report.txt --reporters=default --reporters=jest-junit --onlyChanged --forceExit"
   },
   "keywords": [],
   "author": "",
