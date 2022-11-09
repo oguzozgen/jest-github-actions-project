@@ -1,6 +1,4 @@
-on:
-  pull_request:
-    branches: [master, main, develop]
+on: push
   
 jobs:
   build:
