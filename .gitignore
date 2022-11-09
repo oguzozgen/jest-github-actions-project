@@ -104,3 +104,4 @@ dist
 .tern-port
 
 junit.xml
+coverage-report.txt
