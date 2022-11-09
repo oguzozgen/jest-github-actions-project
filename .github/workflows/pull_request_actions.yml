@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
       - run: npm i -g jest@28.1.3
       - run: npm i -D jest-junit
-      - run: jest --onlyChanged --reporters=default --reporters=jest-junit --coverage | tee ./coverage-report.txt
+      - run: jest --onlyChanged --coverage --reporters=default --reporters=jest-junit | tee ./coverage-report.txt 
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@main
         with:
