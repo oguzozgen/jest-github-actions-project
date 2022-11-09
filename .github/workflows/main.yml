@@ -34,5 +34,5 @@ jobs:
           junitxml-title: Coverage
           junitxml-path: ./junit.xml
           coverage-title: My Coverage Title
-          coverage-path: ./coverage/coverage-report.txt
+          coverage-path: ./coverage-report.txt
 
