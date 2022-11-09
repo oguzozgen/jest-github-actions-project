@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    if: ${{ github.context.payload.pull_request }}
+    if: ${{ github.event.pull_request.head.sha }}
     # Name the Job
     name: Coverage Commenting
     # Set the agent to run on
