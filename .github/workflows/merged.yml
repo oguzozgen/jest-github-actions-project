@@ -19,7 +19,21 @@ jobs:
     - run: npm ci
     - run: npm i -g jest@28.1.3
     - run: npm i -D jest-junit
-    - run: npx jest --coverage  --reporters=default --reporters=jest-junit --coverageReporters json-summary 
+    - run: npm run test-actions
+    - name: Jest Coverage Comment
+      uses: MishaKav/jest-coverage-comment@main
+      with:
+        coverage-summary-path: ./coverage/coverage-final.json
+        title: Coverage Report 
+        summary-title: Only For Changed Files
+        badge-title: Coverage
+        hide-comment: false
+        create-new-comment: true
+        hide-summary: false
+        junitxml-title: Coverage
+        junitxml-path: ./junit.xml
+        coverage-title: My Coverage Title
+        coverage-path: ./coverage-report.txt
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
