@@ -39,4 +39,8 @@ jobs:
           # GITHUB_TOKEN secret
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           # Message to comment
-          message: "Coverage Percentage - ${{ steps.coverageComment.outputs.coverage }}"
+          message: |
+            **Hello**
+            🌏
+            Summary HTML - ${{ steps.coverageComment.outputs.summaryHtml }}
+            !
