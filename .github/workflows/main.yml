@@ -29,10 +29,8 @@ jobs:
           summary-title: Only For Changed Files
           badge-title: Coverage
           hide-comment: false
-          create-new-comment: true
+          create-new-comment: false
           hide-summary: false
           junitxml-title: Coverage
-          junitxml-path: ./coverage/junit.xml
-          coverage-title: Coverage
-          coverage-path: ./coverage.txt
+          junitxml-path: ./junit.xml
 
