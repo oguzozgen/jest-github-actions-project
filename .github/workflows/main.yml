@@ -1,7 +1,9 @@
-on: pull_request
+on: [push, pull_request]
   
+
 jobs:
   build:
+    if: ${{ github.context.payload.pull_request }}
     # Name the Job
     name: Coverage Commenting
     # Set the agent to run on
@@ -33,15 +35,4 @@ jobs:
           junitxml-path: ./coverage/junit.xml
           coverage-title: My Coverage Title
           coverage-path: ./coverage.txt
-      - name: Sonarqube coverage deployment
-        uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - uses: sonarsource/sonarqube-quality-gate-action@master
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
