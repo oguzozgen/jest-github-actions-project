@@ -11,7 +11,7 @@ const multiplyPositive = (first, second) => {
         return "Values types must be number";
     }
 
-    console.log("changed");
+    console.log("changed2");
 
     return first * second;
 };
