@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="4" failures="1" errors="0" time="0.535">
+  <testsuite name="logic module tests" errors="0" failures="1" skipped="0" timestamp="2022-11-10T08:58:42" time="0.487" tests="4">
+    <testcase classname="logic module tests if first value not exist, Response will be string error message" name="logic module tests if first value not exist, Response will be string error message" time="0.001">
+    </testcase>
+    <testcase classname="logic module tests if second value not exist, Response will be string error message" name="logic module tests if second value not exist, Response will be string error message" time="0.001">
+    </testcase>
+    <testcase classname="logic module tests When first value type string, Response will be string error message" name="logic module tests When first value type string, Response will be string error message" time="0.002">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: &quot;Values types must be number&quot;
+Received: &quot;Values types must be numberss&quot;
+    at Object.toBe (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/logic.test.js:15:55)
+    at Promise.then.completed (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/node_modules/jest-circus/build/utils.js:333:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/node_modules/jest-circus/build/utils.js:259:10)
+    at _callCircusTest (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/node_modules/jest-circus/build/run.js:277:40)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at _runTest (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/node_modules/jest-circus/build/run.js:209:3)
+    at _runTestsForDescribeBlock (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/node_modules/jest-circus/build/run.js:97:9)
+    at _runTestsForDescribeBlock (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/node_modules/jest-circus/build/run.js:91:9)
+    at run (/Volumes/OguzKingston/LOQUS/workplace/3.September/Unit-Testing/jest-github-actions-project/node_modules/jest-circus/build/run.js:31:3)</failure>
+    </testcase>
+    <testcase classname="logic module tests When both values positive number, it will return summed numbers" name="logic module tests When both values positive number, it will return summed numbers" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
