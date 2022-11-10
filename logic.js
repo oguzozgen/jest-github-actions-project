@@ -9,7 +9,7 @@ const sumPositive = (first, second) => {
     }
 
     if (typeof (first) !== "number" || typeof (second) !== "number") {
-        return "Values types must be numberss";
+        return "Values types must be numberssx";
     }
 
     return first + second;
