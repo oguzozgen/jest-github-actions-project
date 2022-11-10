@@ -19,8 +19,11 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
-*.lcov
+#coverage
+#*.lcov
+coverage/lcov-report/
+coverage/clover.xml
+coverage/lcov.info
 
 # nyc test coverage
 .nyc_output
@@ -102,6 +105,3 @@ dist
 
 # TernJS port file
 .tern-port
-
-junit.xml
-coverage-report.txt

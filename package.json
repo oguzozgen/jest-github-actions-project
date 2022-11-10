@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node main",
-    "test": "jest --coverage --onlyChanged"
+    "test": "jest --coverage --onlyChanged",
+    "test-commit": "mkdir coverage && jest --onlyChanged --coverage | tee ./coverage/coverage-report.txt"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,8 @@
     "jest-junit": "^14.0.1",
     "sonarqube-scanner": "^2.8.2",
     "supertest": "^6.3.1"
+  },
+  "jest-junit": {
+    "outputDirectory": "coverage"
   }
 }
