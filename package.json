@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node main",
     "test": "jest --coverage --onlyChanged",
-    "test-commit": "mkdir coverage && jest --onlyChanged --coverage | tee ./coverage/coverage-report.txt"
+    "test-commit": "jest --onlyChanged --coverage | tee ./coverage/coverage-report.txt"
   },
   "keywords": [],
   "author": "",
