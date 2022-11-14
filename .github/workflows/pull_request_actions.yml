@@ -25,7 +25,7 @@ jobs:
           node-version: 14
       - run: npm ci
       - run: mkdir coverage
-      - run: jest --config=./jest.config.js --coverage --changedSince=origin/main | tee ./coverage/coverage-report.txt
+      - run: jest --coverage --changedSince=origin/main | tee ./coverage-report.txt
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@main
         with:
@@ -37,7 +37,7 @@ jobs:
           create-new-comment: false
           hide-summary: false
           junitxml-title: Coverage
-          junitxml-path: ./coverage/junit.xml
+          junitxml-path: ./junit.xml
           coverage-title: My Coverage Title
-          coverage-path: ./coverage/coverage-report.txt
+          coverage-path: ./coverage-report.txt
 
