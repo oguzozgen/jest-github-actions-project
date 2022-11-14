@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: |
         git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/* # fetches all branches
-        git checkout -b master # -b creates and checks out a new branch
+        git checkout -b main # -b creates and checks out a new branch
         git checkout ${{ github.event.pull_request.head.sha }} # checks out the SHA of the HEAD from the PR
     - uses: actions/setup-node@v3
       with:
