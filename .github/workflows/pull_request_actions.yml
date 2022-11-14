@@ -21,7 +21,7 @@ jobs:
       - run: npm i -g jest@28.1.3
       - run: npm i -D jest-junit
       - run: mkdir coverage
-      - run: jest --coverage --changedSince origin/main | tee ./coverage/coverage-report.txt
+      - run: jest --config=./jest.config.js --coverage --changedSince=origin/main | tee ./coverage/coverage-report.txt
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@main
         with:
