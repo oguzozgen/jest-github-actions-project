@@ -10,15 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
+    - run: |
+        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/* # fetches all branches
+        git checkout -b master # -b creates and checks out a new branch
+        git checkout ${{ github.event.pull_request.head.sha }} # checks out the SHA of the HEAD from the PR
     - uses: actions/setup-node@v3
       with:
         node-version: 14
     - run: npm ci
-    - run: npm i -g jest@28.1.3
-    - run: npm i -D jest-junit
     - run: mkdir coverage
     - run: jest --config=./jest.config.js --coverage --changedSince=origin/main | tee ./coverage/coverage-report.txt
     - name: Jest Coverage Comment
