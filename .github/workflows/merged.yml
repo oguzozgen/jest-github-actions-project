@@ -10,30 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - run: |
-        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/* # fetches all branches
-        git checkout -b main # -b creates and checks out a new branch
-        git checkout ${{ github.event.pull_request.head.sha }} # checks out the SHA of the HEAD from the PR
+        git fetch --no-tags --depth=1 origin main
+        git checkout -b main origin/main
+        git checkout ${{ github.event.pull_request.head.sha }}
     - uses: actions/setup-node@v3
       with:
         node-version: 14
     - run: npm ci
-    - run: mkdir coverage
-    - run: jest --config=./jest.config.js --coverage --changedSince=origin/main | tee ./coverage/coverage-report.txt
-    - name: Jest Coverage Comment
-      uses: MishaKav/jest-coverage-comment@main
+    - name: TestCoverage
+      id: testCoverage
+      uses: anuraag016/Jest-Coverage-Diff@master
       with:
-        coverage-summary-path: ./coverage/coverage-final.json
-        title: Coverage Report 
-        summary-title: All Files
-        badge-title: Coverage
-        hide-comment: false
-        create-new-comment: true
-        hide-summary: false
-        junitxml-title: Coverage
-        junitxml-path: ./coverage/junit.xml
-        coverage-title: My Coverage Title
-        coverage-path: ./coverage/coverage-report.txt
+        fullCoverageDiff: true // defaults to false, if made true whole coverage report is commented with the diff
+        runCommand: "npx jest --collectCoverageFrom='[\"src/**/*.{js,jsx,ts,tsx}\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary' --forceExit --detectOpenHandles"
+        delta: 0.5
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
