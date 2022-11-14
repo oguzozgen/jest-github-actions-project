@@ -25,7 +25,7 @@ jobs:
           node-version: 14
       - run: npm ci
       - run: mkdir coverage
-      - run: jest --config=./jest.config.js --coverage --changedSince=origin/main | tee ./coverage-report.txt
+      - run: jest --coverage --changedSince=origin/main | tee ./coverage-report.txt
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@main
         with:
