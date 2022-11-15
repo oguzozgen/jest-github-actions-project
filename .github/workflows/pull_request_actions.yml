@@ -45,7 +45,7 @@ jobs:
         id: testCoverage
         uses: anuraag016/Jest-Coverage-Diff@master
         with:
-          fullCoverageDiff: false
+          fullCoverageDiff: true
           runCommand: "npx jest --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary'"
           delta: 0.5
           accessToken: ${{ secrets.GITHUB_TOKEN }}
