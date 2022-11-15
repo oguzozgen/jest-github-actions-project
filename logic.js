@@ -13,7 +13,7 @@ const sumPositive = (first, second) => {
     }
 
     if (typeof (first) !== "number" || typeof (second) !== "number") {
-        return "Values types must be number-changed-6";
+        return "Values types must be number-changed-7";
     }
 
     return first + second;
@@ -30,6 +30,10 @@ const multiplyPositive = (first, second) => {
 
     if (typeof (first) !== "number" || typeof (second) !== "number") {
         return "Values types must be number";
+    }
+
+    if (typeof (first) !== "number" || typeof (second) !== "number") {
+        return "Values types must be number-changed";
     }
 
     return first * second;

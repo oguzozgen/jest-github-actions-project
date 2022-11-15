@@ -9,4 +9,8 @@ describe("logic module tests", function () {
     test("if first value not exist, Response will be string error message", function () {
         expect(tested1.multiplyPositive(null, 2)).toBe("Both values must be exist");
     });
+
+    test("When first value type string, Response will be string error message", function () {
+        expect(tested1.multiplyPositive("asd", "asd")).toBe("Values types must be number");
+    });
 });
