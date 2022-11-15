@@ -16,7 +16,7 @@ const multiplyPositive = (first, second) => {
     }
 
     if (typeof (first) !== "number" || typeof (second) !== "number") {
-        return "Values types must be number22";
+        return "Values types must be number223";
     }
 
 
