@@ -13,4 +13,8 @@ describe("logic module tests", function () {
     test("When first value type string, Response will be string error message", function () {
         expect(tested1.multiplyPositive("asd", "asd")).toBe("Values types must be number");
     });
+
+    test("When first value not positive, Response will be string error message", function () {
+        expect(tested1.multiplyPositive(-4, 1)).toBe("Values must be positive");
+    });
 });
