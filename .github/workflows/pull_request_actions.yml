@@ -46,6 +46,7 @@ jobs:
         uses: anuraag016/Jest-Coverage-Diff@master
         with:
           fullCoverageDiff: true
-          runCommand: "jest --collectCoverage=true --coverageDirectory='./' --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverageReporters='json-summary'"
+          runCommand: "npx jest --collectCoverage=true --coverageDirectory='./' --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverageReporters='json-summary'"
           delta: 0.5
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
 
