@@ -20,5 +20,8 @@
     "jest-junit": "^14.0.1",
     "sonarqube-scanner": "^2.8.2",
     "supertest": "^6.3.1"
+  },
+  "jest-junit": {
+    "outputDirectory": "coverage"
   }
 }
