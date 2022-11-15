@@ -6,7 +6,7 @@ describe("logic module tests", function () {
         expect(tested1.multiplyPositive(3, 2)).toBe(6);
     });
 
-    test("if first value not exist, Response will be string error message", function () {
+    /*test("if first value not exist, Response will be string error message", function () {
         expect(tested1.multiplyPositive(null, 2)).toBe("Both values must be exist");
     });
 
