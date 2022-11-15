@@ -33,7 +33,7 @@ const multiplyPositive = (first, second) => {
     }
 
     if (typeof (first) !== "number" || typeof (second) !== "number") {
-        return "Values types must be number-changed-3";
+        return "Values types must be number-changed-4";
     }
 
     return first * second;
