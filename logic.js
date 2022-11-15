@@ -4,7 +4,7 @@ const sumPositive = (first, second) => {
         return "Both values must be exist";
     }
 
-    if (!first >= 1 || !second >= 1) {
+    if (first < 0 || second < 0) {
         return "Values must be positive";
     }
 
