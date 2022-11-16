@@ -9,4 +9,14 @@ describe("logic module tests", function () {
     test("if value null, it should return false", function () {
         expect(tested1.isNumber(null)).toBe(false);
     });
+
+    test("if value string, it should return true", function () {
+        expect(tested1.isNumber("stringValue")).toBe(true);
+    });
+
+    test("if value null, it should return false", function () {
+        expect(tested1.isString(null)).toBe(false);
+    });
+
+
 });
