@@ -1,20 +1,53 @@
-const multiplyPositive = (first, second) => {
-    if (!first || !second) {
-        return "Both values must be exist";
+const isNumber = (value) => {
+    if (!value) {
+        return false;
     }
 
-    if (first < 0 || second < 0) {
-        return "Values must be positive";
+    if (typeof (value) != "number") {
+        return false;
     }
 
-    if (typeof (first) !== "number" || typeof (second) !== "number") {
-        return "Values types must be number";
+    return true;
+};
+
+const isBoolean = (value) => {
+    if (!value) {
+        return false;
     }
 
+    if (typeof (value) != "boolean") {
+        return false;
+    }
 
-    return first * second;
+    return true;
+};
+
+const isString = (value) => {
+    if (!value) {
+        return false;
+    }
+
+    if (typeof (value) != "boolean") {
+        return false;
+    }
+
+    return true;
+};
+
+const isObject = (value) => {
+    if (!value) {
+        return false;
+    }
+
+    if (typeof (value) != "object") {
+        return false;
+    }
+
+    return true;
 };
 
 module.exports = {
-    multiplyPositive
+    isNumber,
+    isBoolean,
+    isString
 };
