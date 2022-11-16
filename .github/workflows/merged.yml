@@ -1,7 +1,9 @@
 on:
-  pull_request:
-    types:
-      - ready_for_review
+  push:
+    branches:
+      - main
+      - origin/main
+      - master
 
 name: Merged PR SonarQube Push
 jobs:
@@ -15,15 +17,8 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 14
+    - name: load
     - run: npm ci
-    - name: TestCoverage
-      id: testCoverage
-      uses: anuraag016/Jest-Coverage-Diff@master
-      with:
-        fullCoverageDiff: false
-        runCommand: "npx jest --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary'"
-        delta: 0.5
-        accessToken: ${{ secrets.GITHUB_TOKEN }}
     - name: temp load jest
       run: npm i -g jest@28.1.3
     - name: temp report create
