@@ -1,9 +1,5 @@
 on:
   push:
-    branches:
-      - main
-      - origin/main
-      - master
 
 name: Merged PR SonarQube Push
 jobs:
