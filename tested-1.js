@@ -27,7 +27,7 @@ const isString = (value) => {
         return false;
     }
 
-    if (typeof (value) != "boolean") {
+    if (typeof (value) != "string") {
         return false;
     }
 

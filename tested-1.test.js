@@ -11,7 +11,7 @@ describe("logic module tests", function () {
     });
 
     test("if value string, it should return true", function () {
-        expect(tested1.isNumber("stringValue")).toBe(true);
+        expect(tested1.isString("stringValue")).toBe(true);
     });
 
     test("if value null, it should return false", function () {
