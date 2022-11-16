@@ -1,7 +1,11 @@
+name:  Manual DEV Deploy
 on:
-  push:
-
-name: Merged PR SonarQube Push
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref (Optional)    
+        required: false
+        
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
