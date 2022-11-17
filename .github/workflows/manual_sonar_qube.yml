@@ -1,4 +1,4 @@
-name:  Manual DEV Deploy
+name:  Manual Sonar Qube
 on:
   workflow_dispatch:
     inputs:
