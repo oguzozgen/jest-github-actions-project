@@ -19,15 +19,8 @@ jobs:
       run: npm ci
     - name: temp load jest
       run: npm i -g jest@28.1.3
-    - name: TestCoverage
-      id: testCoverage
-      uses: anuraag016/Jest-Coverage-Diff@master
-      with:
-        fullCoverageDiff: false
-        runCommand: "npx jest --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary'"
-        delta: 0.5
-        accessToken: ${{ secrets.GITHUB_TOKEN }}
-        useSameComment: true
+    - name: temp report create
+      run:  jest --collectCoverageFrom='["**/*.{js,jsx}", "!**/node_modules/**", "!**/coverage/**", "!jest.config.js"]' --coverage --collectCoverage=true
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
