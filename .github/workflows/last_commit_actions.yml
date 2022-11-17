@@ -1,10 +1,12 @@
-on: [pull_request]
+on:
+  pull_request:
+    types: [closed]
 
 name: Merged PR SonarQube Push
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.head_commit.message, 'Merge pull request') }}
+    if: ${{ github.event.pull_request.merged == true }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -26,3 +28,8 @@ jobs:
         delta: 0.5
         accessToken: ${{ secrets.GITHUB_TOKEN }}
         useSameComment: true
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
