@@ -1,12 +1,10 @@
-on:
-  pull_request:
-    types:
-      - ready_for_review
+on: [pull_request]
 
 name: Merged PR SonarQube Push
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, 'Merge pull request') }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -17,12 +15,11 @@ jobs:
         node-version: 14
     - run: npm ci
     - name: TestCoverage
-        id: testCoverage
-        uses: anuraag016/Jest-Coverage-Diff@master
-        with:
-          fullCoverageDiff: false
-          runCommand: "npx jest --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary'"
-          delta: 0.5
-          accessToken: ${{ secrets.GITHUB_TOKEN }}
-          useSameComment: true
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      id: testCoverage
+      uses: anuraag016/Jest-Coverage-Diff@master
+      with:
+        fullCoverageDiff: false
+        runCommand: "npx jest --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary'"
+        delta: 0.5
+        accessToken: ${{ secrets.GITHUB_TOKEN }}
+        useSameComment: true
