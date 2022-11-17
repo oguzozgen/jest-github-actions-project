@@ -3,6 +3,7 @@ const isNumber = (value) => {
         return false;
     }
 
+
     if (typeof (value) != "number") {
         return false;
     }
