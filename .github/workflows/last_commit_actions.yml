@@ -1,0 +1,28 @@
+on:
+  pull_request:
+    types:
+      - ready_for_review
+
+name: Merged PR SonarQube Push
+jobs:
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 14
+    - run: npm ci
+    - name: TestCoverage
+        id: testCoverage
+        uses: anuraag016/Jest-Coverage-Diff@master
+        with:
+          fullCoverageDiff: false
+          runCommand: "npx jest --collectCoverageFrom='[\"**/*.{js,jsx}\", \"!**/node_modules/**\", \"!**/coverage/**\", \"!jest.config.js\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary'"
+          delta: 0.5
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+          useSameComment: true
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
