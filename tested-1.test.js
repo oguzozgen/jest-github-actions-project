@@ -18,5 +18,9 @@ describe("logic module tests", function () {
         expect(tested1.isString(null)).toBe(false);
     });
 
+    test("if value string, it should return true", function () {
+        expect(tested1.isBoolean(true)).toBe(true);
+    });
+
 
 });
